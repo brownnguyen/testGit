@@ -1,0 +1,174 @@
+@import '../../Scss/Variables.scss';
+@import '../../Scss/Mixin.scss';
+.header{
+    position: fixed;
+    z-index: 999;
+    .navbar{
+        margin: auto;
+        padding: 0;
+        width: 70%;
+        .navbar-brand{
+            background-color: $black;
+                color: white;
+                @include text ($fs-2 + 5px,$fw-3, $white);
+            padding: $pd-1;
+            text-transform: uppercase;
+            span{
+                font-weight: $fw-1;
+            }
+            &:hover{
+                color: $pink!important;
+                transition: all .5s!important;
+            }
+        }
+        .navbar-nav{
+            .nav-item{
+                margin: auto $mg-2;
+                .nav-link{
+                    @include text($fs-1, $fw-2, $white);
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    &:hover{
+                        color: $pink;
+                        transition: all .5s;
+                    }
+                }
+            }
+            .userInfo{
+                @include text($fs-1, $fw-2, $white);
+            }
+            button.nav-link{
+                background-color:transparent;
+                border: none;
+            }
+            .popup-overlay{
+                .popup-content{
+                    width: 20%!important;
+                }
+            }
+            .userOption {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+        .navbar-toggler{
+            border: 1px solid $white;
+            .navbar-toggler-icon{
+                color: $white;
+            }
+        }
+        .cartDiv{
+            margin-left: 18%;
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            position: relative;
+            color: $white;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            &:hover{
+                background-color: $pink;
+                border:1px solid $pink;
+                transition: all .5s;
+                color: black;
+                .quantity{
+                    background-color: $white;
+                    color: $black;
+                }
+                .shop__cart{
+                    color: $black;
+                }
+            }
+            .cartContent{
+                position: absolute;
+                top: 43px;
+                left: -80px;
+                .shopCart__total{
+                    height: 30%;
+                    position: absolute;
+                    bottom: 0;
+                    background-color: #eaeaea;
+                    width: 100%;
+                    padding: $pd-1 $pd-2;
+                    .priceItemDiv{
+                        height: 55px;
+                        display: flex;
+                        padding-bottom: $pd-1 - 5;
+                        justify-content: space-between;
+                        .price, .item{
+                            p, h6{
+                                @include text($fw-1, $fw-2, $black-1);
+                                margin-bottom: 0;
+                             }
+                             p{
+                                 color: $pink;
+                             }
+                        }
+                    }
+                    .goToCartDiv{
+                        display: block;
+                        .button__goToCart{
+                            width: 100%;
+                            border-radius: 0;
+                            border: 1px solid transparent;
+                            &:focus{
+                                box-shadow: none;
+                                background-color: #b11d4f!important;
+                            }
+                            background-color: $black-1;
+                            &:hover{
+                                background-color: $pink;
+                            }
+                        }
+                    }
+                }
+            }
+            .shop__cart{
+                text-decoration: none;
+                color: $white; 
+            }
+            .quantity{
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                @include text($fs-1 - 5, $fw-2, $white);
+                background-color: $pink;
+                height: 17px;
+                width: 17px;
+                border-radius: 50%;
+                line-height: 17px;
+            }
+        }
+    }
+}
+.userOption{
+    .signUp__Form-content{
+        P{
+            span.SignInSignUp{
+                color: $pink;
+            }
+        }
+    }
+}
+
+.sticky{
+    background-color: $black;
+    transition: all .5s;
+    .navbar{
+        .navbar-brand{
+            color: $pink;
+            transition: all .5s;
+        }
+    }
+}
+.activeClass{
+    color: $pink!important;
+}
+@media screen and (max-width: 992px){
+    .header{
+        background-color: $black;
+    }
+}

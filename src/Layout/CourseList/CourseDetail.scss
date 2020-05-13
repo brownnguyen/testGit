@@ -1,0 +1,91 @@
+@import '../../Scss/Variables.scss';
+@import '../../Scss/Mixin.scss';
+.course__detail{
+    text-decoration: none!important;
+    cursor: pointer;
+    .courseDetail{
+        border-radius: 0;
+        .card__img{
+            position: relative;
+            .layer{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                border: 1px solid transparent;
+            }
+            
+        }
+        .card-body{
+            h5{
+                @include text($fs-1 + 3, $fw-2, $black);
+                text-transform: uppercase;
+            }
+            .card-text{
+                @include text($fs-1 - 2, $fw-2, $grey);
+                margin-bottom: 0
+            }
+            .price{
+                @include text($fs-1, $fs-3, $grey);
+                margin-bottom: 0;
+            }
+        }
+        &:hover{
+            .layer{
+                background-color: rgba(0,0,0,0.7);
+                transition: all .5s;
+            }
+            .card-title, .card-text, .price
+            {
+                color: $pink;
+            }
+
+            box-shadow: 1px 2px 4px 3px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 3px 12px 10px 3px rgba(0, 0, 0, 0.12);
+            transition: all .3s;
+        }
+    }
+}
+.content__modal{
+    position: absolute;
+    background-color: $black-1;
+    width: 100%;
+    top: -20%;
+    z-index: 10;
+    left: 90%;
+    padding: $pd-2;
+    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: -7px;
+        width: 15px;
+        height: 15px;
+        background-color: $black-1;
+        transform: rotate(45deg);
+    }
+    .add__course{
+        width: 100%;
+        border-radius: 0;
+        background-color: $pink;
+        color: $white;
+        &:hover{
+            color: $pink;
+            background-color: black;
+        }
+    }
+    .goToCart{
+        width: 100%;
+        border: 1px solid rgb(0, 115, 119);
+        border-radius: 0;
+        background-color: $white;
+        color: rgb(0, 115, 119);
+        &:hover{
+            color: $white;
+            background-color: #006151;
+        }
+    }
+}
