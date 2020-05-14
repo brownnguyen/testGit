@@ -17,8 +17,7 @@ export default function CourseList() {
 
     const dispatch = useDispatch();
     const getKind = (e) => {
-        let value = e
-        dispatch(createAction(KIND, value))
+        dispatch(createAction(KIND, e))
     }
     const renderCategories = () => {
         let start = (activePage - 1) * 20;
@@ -97,7 +96,7 @@ export default function CourseList() {
                     activePage={activePage}
                     itemsCountPerPage={20}
                     totalItemsCount={totalItem}
-                    onChange={handlePageChange.bind(this)}
+                    onChange={handlePageChange}
                 />
             </div>
         </div>

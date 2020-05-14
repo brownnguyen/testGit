@@ -15,7 +15,6 @@ export const CartReducer = (state = initialState, action) => {
         case ADD_CART:
             {
                 let item = (state.cart.find(sp => sp.id === payload.id))
-                console.log(item)
                 if (item) {
                     return { ...state };
                 }
@@ -30,8 +29,6 @@ export const CartReducer = (state = initialState, action) => {
             {
                 let index = state.cart.findIndex(item => item.id === payload);
                 let removeCart = [...state.cart];
-
-                console.log(index, removeCart);
                 if (index !== -1) {
                     removeCart.splice(index, 1);
                     state.cart = removeCart;

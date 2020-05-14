@@ -43,10 +43,10 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Header />
+        <Route path="/course/:courseId" exact component={Course} />
         <ScrollToTop>
-          <Route path="/course/:courseId" exact component={Course} />
+          <Route path="/" exact component={Home} />
         </ScrollToTop>
-        <Route path="/" exact component={Home} />
         <Route path="/about" exact component={About} />
         <Route path="/shoppingCart" exact component={ShoppingCart} />
         <Route path="/detailPage/:detailId" exact component={CourseDetailPage} />

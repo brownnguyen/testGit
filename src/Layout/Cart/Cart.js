@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux';
 import './Cart.scss';
 
-class Cart extends Component {
-    renderCart = () => {
-        let { cart } = this.props;
+export default function Cart() {
+    const cart = useSelector(state=>state.CartReducer.cart);
+    const renderCart = () => {
         return cart.map((item, index) => {
             return (
                 <div className="row shopCart__details mx-auto pl-2" key={index}>
@@ -19,17 +19,11 @@ class Cart extends Component {
             )
         })
     }
-    render() {
-        return (
-            <div className="shopCart">
-                <div className="shopCart__content">
-                    {this.renderCart()}
-                </div>
+    return (
+        <div className="shopCart">
+            <div className="shopCart__content">
+                {renderCart()}
             </div>
-        )
-    }
+        </div>
+    )
 }
-const mapStateToProps = (state) => ({
-    cart: state.CartReducer.cart
-})
-export default connect(mapStateToProps)(Cart);

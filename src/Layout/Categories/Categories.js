@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react'
 import data from '../../JSON/database.json';
 import './Categories.scss';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createAction } from '../../Action/createAction';
 import { KIND } from '../../Action/Type';
-class Categories extends Component {
-    getKind = (id) => {
-        this.props.dispatch(createAction(KIND,id))
+
+export default function Categories() {
+    const dispatch = useDispatch();
+    const getKind = (id) => {
+        dispatch(createAction(KIND,id))
     }
-    renderCategories = () => {
+    const renderCategories = () => {
         return data.categories.map((item, index) => {
             return (
-                <Link to={`/course/${item.id}`} href="google.com" onClick={()=> this.getKind(item.id)} id={item.id}
+                <Link to={`/course/${item.id}`} href="google.com" onClick={()=> getKind(item.id)} id={item.id}
                  className="col-lg-3 col-md-4 col-sm-6 categories__content" key={index}>
                     <div className="card">
                         <div className="card__img">
@@ -27,19 +29,12 @@ class Categories extends Component {
             )
         }).slice(1,9)
     }
-    render() {
-        return (
-            <div className="container categories">
-                <h3>Top categories</h3>
-                <div className="row">
-                    {this.renderCategories()}
-                </div>
-            </div>
-        );
-    }
+    return (
+        <div className="container categories">
+        <h3>Top categories</h3>
+        <div className="row">
+            {renderCategories()}
+        </div>
+    </div>
+    )
 }
-
-const mapStateToProps = (state) => ({
-    kind: state.CourseReducer.kind
-})
-export default connect(mapStateToProps)(Categories);
